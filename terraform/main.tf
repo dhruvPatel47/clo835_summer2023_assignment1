@@ -15,6 +15,10 @@ resource "aws_ecr_repository" "app_repo" {
   name = var.ecr_repo_name
 }
 
+resource "aws_ecr_repository" "db_repo" {
+  name = var.ecr_repo_name1
+}
+
 resource "aws_security_group" "ec2_sg" {
   name        = "clo835-sg"
   description = "Allow SSH and HTTP"
@@ -52,4 +56,3 @@ resource "aws_instance" "app_ec2" {
     Name = "clo835-ec2"
   }
 }
-
